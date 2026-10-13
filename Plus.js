@@ -10,7 +10,7 @@ import Apparence from './Apparence';
 import Compte from './Compte';
 import Notifs from './Notifs';
 import Credits from './Credits';
-import OgiaConnect from './OgiaConnect';
+import Services from './Services';
 
 const Back = ({ onPress, title }) => (
   <Pressable onPress={onPress} style={{ flexDirection: 'row', alignItems: 'center', gap: 4, padding: 16, paddingTop: 0 }}>
@@ -82,7 +82,7 @@ export default function Plus({ sub, setSub, account, theme, onTheme, prefs, setP
   if (sub === 'ia') return wrap(<Settings />);
   if (sub === 'notifs') return wrap(<Notifs />);
   if (sub === 'credits') return wrap(<Credits />);
-  if (sub === 'ogia') return wrap(<OgiaConnect />);
+  if (sub === 'services') return wrap(<Services />);
   const row = (k, icon, label) => (
     <Pressable key={k} onPress={() => setSub(k)} style={{ flexDirection: 'row', alignItems: 'center', gap: 14, paddingVertical: 16, borderBottomColor: C.line, borderBottomWidth: 1 }}>
       <Feather name={icon} size={22} color={C.accent} /><T style={{ flex: 1, fontSize: 17 }}>{label}</T><Feather name="chevron-right" size={20} color={C.muted} />
@@ -90,7 +90,7 @@ export default function Plus({ sub, setSub, account, theme, onTheme, prefs, setP
   );
   return (
     <ScrollView contentContainerStyle={{ paddingHorizontal: 16 }}>
-      {row('ogia', 'calendar', 'Ateliers Ogia')}{row('vie', 'clock', 'Vie scolaire')}{row('actus', 'rss', 'Actualités')}{row('notifs', 'bell', 'Notifications')}{row('compte', 'user', 'Mon compte')}{row('theme', 'droplet', 'Apparence')}{row('ia', 'cpu', 'Assistant IA')}{row('credits', 'info', 'À propos et crédits')}
+      {row('services', 'link', 'Services du lycée')}{row('vie', 'clock', 'Vie scolaire')}{row('actus', 'rss', 'Actualités')}{row('notifs', 'bell', 'Notifications')}{row('compte', 'user', 'Mon compte')}{row('theme', 'droplet', 'Apparence')}{row('ia', 'cpu', 'Assistant IA')}{row('credits', 'info', 'À propos et crédits')}
     </ScrollView>
   );
 }
